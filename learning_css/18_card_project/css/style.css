@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* GENERAL */
+
+html {
+    /* To make smooth scrolling when navigating with navs */
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 1.5rem Nunito, sans-serif;
+    min-height: 100vh;
+
+    background-color: #475569;
+    background-image: radial-gradient(whitesmoke, #475569);
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    position: sticky;
+    background-color: #D32F2F;
+    color: #F7E7CE;
+    text-align: center;
+}
+
+header {
+    top: 0;
+}
+
+nav {
+    background-color: #FFDAB9;
+    padding: 0.5rem;
+    border-bottom: 2px solid #000;
+
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bolder;
+}
+
+nav a, nav a:visited {
+    color: #475569;
+}
+
+nav a:hover, nav a:focus {
+    color: hsla(215, 19%, 35%, 0.6);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+footer {
+    bottom: 0;
+}
+
+/* PROFILE CARD */
+
+.card {
+    /* without this, when clicking on nav, the pages scrolled to fig caption.
+    Now it will show the full image as well. */
+    scroll-margin-top: 8rem;
+    background-color: #fff;
+    width: min(100%, 350px);
+    border: 2px solid #000;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card figure {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+}
+
+.card img {
+    border: 5px double gray;
+    border-radius: 50%;
+}
+
+.card figcaption {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    /* flex-grow: 1; */
+}
+
+/* SMALL Media Query */
+
+@media screen and (min-width: 576px) {
+    main {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+/* MEDIUM Media Query */
+
+@media screen and (min-width: 1024px) {
+    nav {
+        display: none;
+    }
+
+    main {
+        align-items: stretch;
+    }
+}
+
+/* LARGE Media Query */
+@media screen and (min-width: 1250px) {
+    main {
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    .card {
+        width: min(calc(33% - 1rem), 500px);
+        height: 450px;
+    }
+}
+
+/* LANDSCAPE MODE Media Query */
+@media screen and (max-height: 450px) and (min-aspect-ratio: 7/4) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        display: none;
+    }
+
+    main {
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .card {
+        width: min(calc(33% - 0.25rem), 200px);
+        height: auto;
+    }
+
+    .card figcaption, .card p{
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+}
